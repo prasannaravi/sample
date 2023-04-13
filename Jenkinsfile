@@ -32,16 +32,10 @@ node {
     stage('NPM Install d3') {
         
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-            steps{
-                step{
+            
                     bat 'npm install d3'
                     echo 'd3 install successfully'
-                }
-                    step{
-                        bat 'npm audit fix --force'
-                    }
-            }
-        }
+                 }
     }
 
     stage('Test') {
