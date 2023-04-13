@@ -1,0 +1,55 @@
+[
+	{
+		"displayName": "Admin",
+		"iconName": "group",
+		"children": [
+			{
+				"displayName": "Application",
+				"iconName": "assignment_ind",
+				"route": "/list/application"
+			},
+			
+			   
+			{
+				"displayName": "Feature",
+				"iconName": "assignment_ind",
+				"route": "/list/feature"
+			},
+			   
+			
+			{
+				"displayName": "Language",
+				"iconName": "assignment_ind",
+				"route": "/list/lang"
+			},
+			
+			{
+				"displayName": "organization",
+				"iconName": "assignment_ind",
+				"route": "/list/organization"
+			},
+			{
+				"displayName": "Product",
+				"iconName": "assignment_ind",
+				"route": "/list/Product"
+			},
+			
+			{
+				"displayName": "Product Features",
+				"iconName": "assignment_ind",
+				"route": "/list/Product"
+			},
+
+			
+
+      
+      {
+				"displayName": "user",
+				"iconName": "assignment_ind",
+				"route": "/list/user"
+			}
+			
+			
+			
+    ]}
+]

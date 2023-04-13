@@ -1,0 +1,86 @@
+{
+  "pageHeading": "User",
+  "formType": "simple",
+  "form": {
+    "collectionName": "user",
+    "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "label_view",
+            "key": "user_id",
+            "className": "flex-1",
+            "props": {
+              "label": "User ID",
+              "readonly": true
+            }
+          },
+          {
+            "type": "label_view",
+            "key": "display_name",
+            "className": "flex-1",
+            "props": {
+              "label": "Name"
+            }
+          }
+        ]
+      },
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "label_view",
+            "key": "org_id",
+            "className": "flex-1",
+            "props": {
+              "label": "Org ID"
+            }
+          },
+          {
+            "type": "label_view",
+            "key": "role_id",
+            "className": "flex-1",
+            "props": {
+              "label": "Role ID"
+            }
+          }
+        ]
+      },
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "key": "email_id",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+              "label": "Email-ID"
+            }
+          },
+          {
+            "type": "label_view",
+            "key": "mobile_no",
+            "className": "flex-1",
+            "props": {
+              "label": "Mobile NO"
+            }
+          }
+        ]
+      },
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "key": "user_type",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+              "label": "User Type"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

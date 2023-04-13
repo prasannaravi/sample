@@ -1,0 +1,67 @@
+{
+	"pageHeading": "Language",
+	"formType": "simple",
+	"keyField":"lang_code",
+	"form": {
+	  "collectionName": "language",
+	 
+	  "fields": [
+		{
+		  "fieldGroupClassName": "display-flex",
+		  "fieldGroup": [
+			{
+			  "type": "input",
+			  "key": "lang_code",
+			  "className": "flex-1",
+			  "props": {
+				"label": "Language Code",
+				"placeholder": "Feature ID",
+				"required": true
+			   
+			  }
+			},
+			{
+				"type": "input",
+				"key": "label",
+				"className": "flex-1",
+				"props": {
+				  "label": "Label",
+				  "placeholder": "Feature ID",
+				  "required": true
+				 
+				}
+			  }
+		   
+		  ]
+		}
+  
+	   
+		  
+	 
+	  
+	   
+				
+				
+			  
+		   
+  
+		  ]
+	}
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

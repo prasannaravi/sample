@@ -1,0 +1,111 @@
+{
+	"pageHeading": "Application varient",
+	"formType": "simple",
+  "addEditMode": "popup",
+  "keyField":"application_variant",
+	"form": {
+	  "collectionName": "applicationvariant",
+	  "fields": [
+		{
+      "fieldGroupClassName": "display-flex",
+		  "fieldGroup": [
+			
+      {
+        "type": "select_dynamic_options",
+        "key": "app_code",
+          "className": "flex-3",
+          "props": {
+            "label": "application",
+            "labelPropTemplate": " {{app_code}}-{{app_name}}",
+            "optionsDataSource": {
+            "collectionName": "application"
+            },
+            "labelProp": "app_name",
+            "valueProp": "app_code",
+            "required": true
+          }
+        },
+      {
+        "type": "input",
+        "key": "variant_name",
+        "className": "flex-1",
+        "props": {
+        "label": "Variant name",
+       
+        "placeholder": "Name",
+        "required": true
+        }
+      }
+      
+		  ]
+		},
+   
+   
+    {
+      "fieldGroupClassName": "display-flex",
+		  "fieldGroup": [
+			{
+			  "type": "input",
+			  "key": "sandy_soil_hps",
+			  "className": "flex-1",
+			  "props": {
+				"label": "sandy soil",
+				"placeholder": "sandy soil",
+				"required": true
+        
+			  }
+			},
+      {
+        "type": "input",
+        "key": "red_soil_hps",
+        "className": "flex-1",
+        "props": {
+        "label": "Red soil",
+       
+        "placeholder": "Red soil",
+        "required": true
+        }
+      }
+      
+		  ]
+		},
+
+
+    {
+      "fieldGroupClassName": "display-flex",
+		  "fieldGroup": [
+			{
+			  "type": "input",
+			  "key": "clay_soil_hps",
+			  "className": "flex-1",
+			  "props": {
+				"label": "clay soil",
+				"placeholder": "clay soil",
+				"required": true
+       
+			  }
+			},
+      {
+        "type": "input",
+        "key": "hps",
+        "className": "flex-1",
+        "props": {
+        "label": "hp",
+        
+        "placeholder": "hp",
+        "required": true
+        }
+      }
+      
+		  ]
+		}
+
+
+
+
+
+	  ]
+	}
+
+
+  }

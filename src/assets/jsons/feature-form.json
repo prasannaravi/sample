@@ -1,0 +1,65 @@
+{
+  "pageHeading": "feature",
+  "formType": "simple",
+  "keyField":"feature_id",
+  "form": {
+    "collectionName": "feature",
+   
+    "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "input",
+            "key": "feature_id",
+            "className": "flex-1",
+            "props": {
+              "label": "Feature ID",
+              "placeholder": "Feature ID",
+              "required": true
+             
+            }
+          },
+          {
+            "type": "select_dynamic_options",
+            "key": "org_id",
+              "className": "flex-3",
+              "props": {
+                "label": "Organization",
+                "labelPropTemplate": " {{name}}",
+                "optionsDataSource": {
+                "collectionName": "organization"
+                },
+                "labelProp": "name",
+                "valueProp": "id",
+                "required": true
+              }
+            },
+            {
+              "type": "input",
+              "key": "default_label",
+              "className": "flex-1",
+              "props": {
+                "label": "Label",
+                "placeholder": "Label",
+                "required": true
+               
+              }
+            }
+         
+        ]
+      }
+
+     
+        
+   
+    
+     
+              
+              
+            
+         
+
+        ]
+  }
+}

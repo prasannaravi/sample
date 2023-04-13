@@ -1,0 +1,70 @@
+{
+	"pageHeading": "organization",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "organization",
+	  "fields": [
+      
+      {
+			  "type": "label_view",
+			  "key": "id",
+			  "props": {
+				"label": "Organization ID",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "name",
+        "props": {
+        "label": "Name"
+        }
+      },
+
+      {
+        "type": "label_view",
+        "key": "street",
+        "props": {
+        "label": "Street"
+        }
+      },
+      {
+        "type": "label_view",
+        "key": "city",
+        "props": {
+        "label": "City"
+        }
+      }
+      ,
+      {
+        "type": "label_view",
+        "key": "pincode",
+        "props": {
+        "label": "Pincode"
+        }
+      }
+      ,
+      {
+        "type": "label_view",
+        "key": "state",
+        "props": {
+        "label": "State"
+        }
+      }
+
+      ,
+      {
+        "type": "label_view",
+        "key": "country",
+        "props": {
+        "label": "Country"
+        }
+      }
+
+    
+    
+
+
+	  ]
+	}
+  }

@@ -1,0 +1,121 @@
+{
+  "pageHeading": "User",
+  "formType": "simple",
+  "addEditMode": "popup",
+  "keyField": "user_id",
+  "form": {
+    "collectionName": "user",
+    "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "input",
+            "key": "user_id",
+            "className": "flex-1",
+            "props": {
+              "label": "User ID",
+              "placeholder": "User ID",
+              "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$"
+            }
+          },
+          {
+            "type": "input",
+            "key": "display_name",
+            "className": "flex-1",
+            "props": {
+              "label": " Name",
+              "pattern=": "[a-zA-Z ]+( [a-zA-Z)*",
+              "placeholder": "Name"
+            }
+          }
+        ]
+      },
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "select_dynamic_options",
+            "key": "org_id",
+              "className": "flex-3",
+              "props": {
+                "label": "Organization",
+                "labelPropTemplate": " {{name}}",
+                "optionsDataSource": {
+                "collectionName": "organization"
+                },
+                "labelProp": "name",
+                "valueProp": "id",
+                "required": true
+              }
+            },
+         
+        {
+        "type": "select_dynamic_options",
+          "key": "role_id",
+          "className": "flex-3",
+          "props": {
+            "label": "Role ID",
+            "labelPropTemplate": " {{name}}",
+            "optionsDataSource": {
+            "collectionName": "userrole"
+            },
+            "labelProp": "name",
+            "valueProp": "id",
+            "required": true
+          }
+        }
+        ]
+      },
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "key": "email_id",
+            "type": "input",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "label": "Email ID"
+            }
+          },
+          {
+            "key": "mobile_no",
+            "type": "input",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "pattern": "[0-9]{10}",
+              "label": "Mobile No",
+              "maxLength": 10
+            }
+          }
+        ]
+      },
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "key": "pin",
+            "type": "input",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "label": "Pin"
+            }
+          },
+          {
+            "key": "otp",
+            "type": "input",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "label": "Otp"
+            }
+          }
+        ]
+      }
+     
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+	"pageHeading": "Feature Option",
+	"collectionName": "featureoption",
+	"show":true,
+	"editMode":"popup",
+	"showdefaultFilter":"yes",
+  "actions":[
+		{
+			"label":"Edit",
+			"icon":"edit",
+			"method":"edit()"
+		},
+		{
+			"label":"View",
+			"icon":"visibility",
+			"method":"view()"
+		},
+		{
+			"label":"Delete",
+			"icon":"delete",
+			"method":"delete()"
+		}
+		],
+
+	"columnDefs": [
+
+        {
+			"headerName": "Feature opt id",
+			"field": "feature_opt_id",
+			"sortable":true
+			
+		},
+		{
+			"headerName": "Feature id",
+			"field": "feature_id"
+			
+		},
+		{
+			"headerName": "Lable",
+			"field": "default_label",
+			"sortable":true
+			
+		},
+		
+		
+		{
+			"type":"rightAligned",
+			"headerName": "Actions",
+			"cellRenderer": "buttonRenderer",
+			"cellRendererParams": {
+			  "onClick": "this.onBtnClick1.bind(this)",
+			  "label": "Click 1"
+			}
+		  }
+	]
+
+	
+	}

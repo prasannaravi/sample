@@ -1,0 +1,54 @@
+{
+	"pageHeading": "Application category",
+	"collectionName": "applicationcategory",
+	"show": true,
+	"keyField": "application_category",
+	"editMode": "popup",
+	"screenWidth": "800px",
+
+	"actions": [
+		{
+			"label": "Edit",
+			"icon": "edit"
+		},
+		{
+			"label": "View",
+			"icon": "visibility"
+		},
+		{
+			"label": "Delete",
+			"icon": "delete"
+		}
+	],
+	"columnDefs": [
+		{
+			"headerName": "category code",
+			"field": "category_code",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "category name",
+			"field": "category_name",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		},
+		
+		{
+			"headerName": "org id ",
+			"field": "org_id",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		},
+		
+		{
+			"type": "rightAligned",
+			"headerName": "Actions",
+			"cellRenderer": "buttonRenderer",
+			"cellRendererParams": {
+				"onClick": "this.onBtnClick1.bind(this)",
+				"label": "Click 1"
+			}
+		}
+	]
+}

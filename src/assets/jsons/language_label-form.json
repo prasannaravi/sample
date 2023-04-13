@@ -1,0 +1,122 @@
+{
+	"pageHeading": "Language label",
+	"formType": "simple",
+	"keyField":"id",
+	"form": {
+		"collectionName": "applicationvariant",
+		"fields": [
+			{
+			  "fieldGroupClassName": "display-flex",
+			  "fieldGroup": [
+				{
+				  "type": "input",
+				  "key": "rec_id",
+				  "className": "flex-1",
+				  "props": {
+					"label": "User ID",
+					"placeholder": "User ID",
+					"pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$"
+				  }
+				},
+				{
+					"type": "select_dynamic_options",
+					"key": "lang_code",
+					  "className": "flex-3",
+					  "props": {
+						"label": "Feature id",
+						"labelPropTemplate": " {{feature_id}}",
+						"optionsDataSource": {
+						"collectionName": "feature"
+						},
+						"labelProp": "name",
+						"valueProp": "feature_id",
+						"required": true
+					  }
+					},
+					{
+						
+						"key": "label",
+						"type": "label",
+						"className": "flex-1",
+						"props": {
+						  "type": "input",
+						  "pattern": "[0-9]{10}",
+						  "label": "Mobile No",
+						  "maxLength": 10
+						}
+					  }
+			  ]
+			},
+			{
+				"fieldGroupClassName": "display-flex",
+				"fieldGroup": [
+				  {
+					"key": "key",
+					"type": "input",
+					"className": "flex-1",
+					"props": {
+					  "type": "input",
+					  "label": "Email ID"
+					}
+				  },
+				  {
+					"key": "entity_type",
+					"type": "input",
+					"className": "flex-1",
+					"props": {
+					  "type": "input",
+					  "pattern": "[0-9]{10}",
+					  "label": "Mobile No",
+					  "maxLength": 10
+					}
+				  }
+				]
+			  },
+			{
+			  "fieldGroupClassName": "display-flex",
+			  "fieldGroup": [
+				{
+				  "key": "email_id",
+				  "type": "input",
+				  "className": "flex-1",
+				  "props": {
+					"type": "input",
+					"label": "Email ID"
+				  }
+				},
+				{
+				  "key": "mobile_no",
+				  "type": "input",
+				  "className": "flex-1",
+				  "props": {
+					"type": "input",
+					"pattern": "[0-9]{10}",
+					"label": "Mobile No",
+					"maxLength": 10
+				  }
+				}
+			  ]
+			}
+			
+		   
+		  ]
+	  }
+  
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

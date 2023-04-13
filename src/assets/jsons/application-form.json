@@ -1,0 +1,144 @@
+{
+  "pageHeading": "Application",
+  "formType": "simple",
+  "addEditMode": "popup",
+  "form": {
+    "collectionName": "application",
+    "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "input",
+            "key": "app_code",
+            "className": "flex-1",
+            "props": {
+              "label": "App Code",
+              "placeholder": "App Code",
+              "required": true
+            }
+          },
+          {
+            "type": "input",
+            "key": "app_name",
+            "className": "flex-1",
+            "props": {
+              "label": "App Name",
+              "placeholder": "App Name",
+              "required": true
+            }
+          },
+          {
+            "type": "select_dynamic_options",
+            "key": "org_id",
+            "className": "flex-3",
+            "props": {
+              "label": "Org id",
+              "labelPropTemplate": " {{name}}",
+              "optionsDataSource": {
+                "collectionName": "organization"
+              },
+              "labelProp": "name",
+              "valueProp": "id",
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "select_dynamic_options",
+            "key": "category_code",
+            "className": "flex-3",
+            "props": {
+              "label": "category Code",
+              "labelPropTemplate": " {{category_name}}",
+              "optionsDataSource": {
+                "collectionName": "applicationcategory"
+              },
+              "labelProp": "category_name",
+              "valueProp": "category_code",
+              "required": true
+            }
+          },
+          {
+            "type": "input",
+            "key": "app_variant_name",
+            "className": "flex-1",
+            "props": {
+              "label": "App variant name",
+              "placeholder": "App Name",
+              "required": true
+            }
+          }
+        ]
+      },
+      {
+        "type": "tabs",
+        "fieldGroup": [
+          {
+            "props": {
+              "label": "Language"
+            },
+            "expressions": {
+              "hide": "!model.isshow"
+            },
+            "fieldGroup": [
+              {
+                "type": "language_input",
+                "key": "language",
+                "className": "flex-1",
+                "props": {
+                  "label": "Language",
+                  "optionsDataSource": {
+                    "collectionName": "language"
+                  }
+                }
+          } 
+            ]
+          },
+          {
+            "props": {
+              "label": "Image"
+            },
+            "expressions": {
+              "hide": "!model.isshow"
+            },
+            "fieldGroup": [
+              {
+                "type": "image_upload",
+                "key": "image",
+                "className": "flex-1",
+                "props": {
+                  "label": "Image Upload",
+                  "endPoint": "application/image"
+                }
+              }
+            ]
+          },
+          {
+            "props": {
+              "label": "Video"
+            },
+            "expressions": {
+              "hide": "!model.isshow"
+            },
+            "fieldGroup": [
+              {
+                "type": "video_upload",
+                "key": "image",
+                "className": "flex-1",
+                "props": {
+                  "label": "Video Upload",
+                  "endPoint": "application/video"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

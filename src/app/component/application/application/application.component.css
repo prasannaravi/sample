@@ -1,0 +1,35 @@
+.buttonstyle{
+  width: 33%;
+  padding: 10px;
+
+}
+
+.but_size{
+  padding: 5px;
+}
+btn2{
+  color: #000;
+}
+
+.vdi-btn{
+  display: table-cell;
+  max-width: 500px;
+
+
+
+}
+input[type="file"]{
+  visibility: hidden;
+}
+
+.image-preview{
+  height: 5rem;
+  margin:1rem 0;
+}
+
+.image-preview img{
+  height: 100%;
+}
+.box{
+  margin-bottom: 5px;
+}

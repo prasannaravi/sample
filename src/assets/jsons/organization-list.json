@@ -1,0 +1,82 @@
+{
+	"pageHeading": "organization",
+	"collectionName": "organization",
+	"show":true,
+  	"editMode":"popup",
+	  "screenWidth":"800px",
+
+
+	"actions":[
+		{
+			"label":"Edit",
+			"icon":"edit",
+			"formName":"organization"
+		},
+		{
+			"label":"View",
+			"icon":"visibility",
+			"formName":"organization-view"
+		},
+		{
+			"label":"Delete",
+			"icon":"delete"
+		}
+		],
+
+	"columnDefs": [
+        
+		{
+			"headerName": "Organization ID",
+			"field": "id",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Name",
+			"field": "name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Street",
+			"field": "street",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "City",
+			"field": "city",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Pincode",
+			"field": "pincode",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "State",
+			"field": "state",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Country",
+			"field": "country",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		
+		{
+			"type":"rightAligned",
+            "headerName": "Actions",
+            "cellRenderer": "buttonRenderer",
+            "cellRendererParams": {
+              "onClick": "this.onBtnClick1.bind(this)",
+              "label": "Click 1"
+            }
+          }
+	]
+}
+

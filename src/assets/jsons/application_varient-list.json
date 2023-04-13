@@ -1,0 +1,91 @@
+{
+	"pageHeading": "Application varient",
+	"collectionName": "applicationvariant", 
+	"show":true,
+  "editMode":"popup",
+  "screenWidth":"1200px",
+
+
+	"actions":[
+		{
+			"label":"Edit",
+			"icon":"edit",
+			"method":"edit()"
+		},
+		{
+			"label":"View",
+			"icon":"visibility",
+			"method":"view()"
+		},
+		{
+			"label":"Delete",
+			"icon":"delete",
+			"method":"delete()"
+		}
+		],
+
+
+	"columnDefs": [
+               {
+			"headerName": "ID",
+			"field": "id",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "App code",
+			"field": "app_code",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		
+		{
+			"headerName": "Varient Name",
+			"field": "variant_name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Sandy oil hps",
+			"field": "sandy_soil_hps",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Red soil",
+			"field": "red_soil_hps",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Clay soil hps",
+			"field": "clay_soil_hps",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Hps",
+			"field": "hps",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		
+	
+
+
+
+		{
+			"type":"rightAligned",
+            "headerName": "Actions",
+            "cellRenderer": "buttonRenderer",
+            "cellRendererParams": {
+              "onClick": "this.onBtnClick1.bind(this)",
+              "label": "Click 1"
+            }
+          }
+
+
+	]
+
+}
+

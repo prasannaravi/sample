@@ -1,0 +1,77 @@
+{
+	"pageHeading": "Language label",
+	"collectionName": "languagelabel",
+	"editMode":"popup",
+	"show":true,
+	"showdefaultFilter":"yes",
+	"screenWidth":"900px",
+
+	"actions":[
+		{
+			"label":"Edit",
+			"icon":"edit",
+			"method":"edit()"
+		},
+		{
+			"label":"View",
+			"icon":"visibility",
+			"formName":"Lang-view"
+		},
+		{
+			"label":"Delete",
+			"icon":"delete",
+			"method":"delete()"
+		}
+		],
+		"columnDefs": [
+			{
+			"headerName": "ID",
+			"field": "id",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+			},
+			{
+			"headerName": "Rec ID",
+			"field": "rec_id",
+			"sortable":true,
+			"filter": "agDateColumnFilter"
+			},
+			{
+				"headerName": "Language Code",
+				"field": "lang_code",
+				"sortable":true,
+				"filter": "agDateColumnFilter"
+				},
+				{
+					"headerName": "Label",
+					"field": "label",
+					"sortable":true,
+					"filter": "agDateColumnFilter"
+					},
+					{
+						"headerName": "Key",
+						"field": "key",
+						"sortable":true,
+						"filter": "agDateColumnFilter"
+						},
+						{
+							"headerName": "Entity Type",
+							"field": "entity_type",
+							"sortable":true,
+							"filter": "agDateColumnFilter"
+							},
+			{
+			"type":"rightAligned",
+			"headerName": "Actions",
+			"cellRenderer": "buttonRenderer",
+			"cellRendererParams": {
+			"onClick": "this.onBtnClick1.bind(this)",
+			"label": "Click 1"
+			}
+			}
+			
+			]
+			
+			
+}
+

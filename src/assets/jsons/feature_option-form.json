@@ -1,0 +1,65 @@
+{
+  "pageHeading": "Feature Option",
+  "formType": "simple",
+  "keyField":"feature_id",
+  "form": {
+    "collectionName": "featureoption",
+   
+    "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "input",
+            "key": "feature_opt_id",
+            "className": "flex-1",
+            "props": {
+              "label": "Feature opt id",
+              "placeholder": "Feature opt ID",
+              "required": true
+             
+            }
+          },
+          {
+            "type": "select_dynamic_options",
+            "key": "feature_id",
+              "className": "flex-3",
+              "props": {
+                "label": "Feature id",
+                "labelPropTemplate": " {{feature_id}}",
+                "optionsDataSource": {
+                "collectionName": "feature"
+                },
+                "labelProp": "name",
+                "valueProp": "feature_id",
+                "required": true
+              }
+            },
+            {
+              "type": "input",
+              "key": "default_label",
+              "className": "flex-1",
+              "props": {
+                "label": "Label",
+                "placeholder": "Label",
+                "required": true
+               
+              }
+            }
+         
+        ]
+      }
+
+     
+        
+   
+    
+     
+              
+              
+            
+         
+
+        ]
+  }
+}

@@ -1,0 +1,165 @@
+<app-app-header></app-app-header>
+
+<mat-card>
+  <div style="
+  overflow-y: auto;
+padding-top: 20px;
+  font-size: 24px;
+  flex: 1 1 auto;
+  font-family: Times New Roman, Times, serif;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+"> Application</div>
+
+  <!-- APP CODE-->
+  <div>
+    <form [formGroup]="appForm" class="add-field">
+      <mat-form-field class="buttonstyle" appearance="outline">
+        <mat-label>App code</mat-label>
+        <input matInput formControlName="app_code" placeholder="App code">
+      </mat-form-field>
+      <!-- APP CATEGORY-->
+      <mat-form-field class="buttonstyle" appearance="outline">
+        <mat-label>App Category</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="option1">Agriculture</mat-option>
+          <mat-option value="option2">Cummercial</mat-option>
+          <mat-option value="option3">Haulage</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- ORG ID-->
+      <mat-form-field class="buttonstyle" appearance="outline">
+        <mat-label>Org ID</mat-label>
+        <input matInput formControlName="org_id" placeholder="Org ID">
+      </mat-form-field>
+
+      <!-- DEFAULT LABLE-->
+
+      <mat-form-field class="buttonstyle" appearance="outline">
+        <mat-label>Default Label in English</mat-label>
+        <input matInput formControlName="default_label" placeholder="Default Label in English">
+      </mat-form-field>
+
+      <!-- IMAGE UPLOADED-->
+      <mat-form-field class="buttonstyle" appearance="outline">
+        <mat-label>Default image url</mat-label>
+        <input matInput formControlName="default_image_url" placeholder="Default image url">
+      </mat-form-field>
+
+      <!-- VARIANT FLAG-->
+      <mat-form-field class="buttonstyle" appearance="outline">
+        <mat-label>Is variant flag</mat-label>
+        <input matInput formControlName="is_variant_flag" placeholder="Is variant flag">
+      </mat-form-field>
+
+      <!-- LANGUAGE-->
+     
+
+      <mat-tab-group>
+
+        <mat-tab label="Language">
+
+
+          <div *ngFor="let data of this.langArr">
+
+            <mat-form-field class="buttonstyle" appearance="outline">
+              <mat-label>Label in {{data.label}}</mat-label>
+              <input type="text" [(ngModel)]="data.label" matInput placeholder="{{data.label}}">
+            </mat-form-field>
+          </div>
+        </mat-tab>
+        <!-- UPLOADED IMAGE-->
+
+
+        <mat-tab label="Image">
+          <button mat-raised-button style="color: white;background-color: grey;text-align: center; 
+          margin:20px;" (click)="fileInput.click()">Select File</button>
+          <input style="display: none" #attachments type="file" (change)="onFileSelection($event)" #fileInput
+            multiple="true">
+          <div style="display:flex;flex-direction: row;">
+            <div style="flex:1 0 auto;width:100px;border: 1px solid #dddd;"
+              *ngFor="let image of imageList;let index = index">
+              <span>
+                <img [src]="image" alt="Image">
+                <mat-icon (click)="removeSelectedFile(index)">delete</mat-icon>
+              </span>
+            </div>
+          </div>
+
+
+        </mat-tab>
+
+
+        <!-- VIDEO UPLOADED-->
+        <mat-tab label="Video">
+          <div>
+            <!--PASSING URL-->
+            <from [formGroup]="appForm">
+            <mat-form-field  class="buttonstyle" appearance="outline">
+              <mat-label>Url</mat-label>
+              <input type="text" matInput  placeholder="Url" formControlName="url" >
+            </mat-form-field>
+
+            <!--DROUP DOWN-->
+            <mat-form-field class="buttonstyle" appearance="outline">
+              <mat-label>Language</mat-label>
+              <!-- <mat-select [(ngModel)]="lang"> -->
+                <mat-select formControlName="lang">
+                <mat-option *ngFor="let data of langList" [value]="data.lang_code">{{ data.label }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </from>
+            <button mat-stroked-button color="warn" (click)="addVideo()">
+              View Video
+            </button>
+
+            <!--IFRAME-->
+            <div style="padding: 20px;" *ngFor="let data of langList">
+              <div><h4>{{data.label}}</h4></div>
+                <span style="display:inline-block;" *ngFor="let v of getData(data.lang_code)">
+                    <!-- {{v.lang}} -->
+                    <iframe [src]="url"></iframe>
+                   
+                </span>
+
+
+            </div>
+          </div>
+          <!-- <div>
+            <form [formGroup]="appForm">
+              <mat-form-field class="buttonstyle" appearance="outline">
+                <mat-label>Url</mat-label>
+                <input matInput formControlName="videocntrl_url" placeholder="Url">
+               
+              </mat-form-field>
+              <button mat-stroked-button color="warn" (click)="viewHdVideo()">
+                View Video
+              </button>  <mat-icon (click)="addField()">add_circle</mat-icon>
+            </form>
+          </div>
+          <div style="padding-left: 20px;">
+            <iframe [src]="url"></iframe>
+          </div> -->
+          <!-- {{url}} -->
+        </mat-tab>
+
+      </mat-tab-group>
+    </form>
+  </div>
+  <div>
+    <!-- BUTN -->
+    <mat-card-actions>
+      <div style="text-align-last: end; width: 100%;">
+        <button style="margin: 5px" mat-button>
+          Cancel
+        </button>
+        <button style="margin: 5px" mat-raised-button color="warn">
+          {{ butText }}
+        </button>
+      </div>
+    </mat-card-actions>
+
+  </div>
+
+</mat-card>

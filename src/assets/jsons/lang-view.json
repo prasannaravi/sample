@@ -1,0 +1,44 @@
+
+
+
+{
+	"pageHeading": "Language",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "language",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+      {
+			  "type": "label_view",
+			  "key": "lang_code",
+        "className": "flex-1",
+			  "props": {
+				"label": "Language Code",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "label",
+        "className": "flex-1",
+        "props": {
+        "label": "Language lable"
+        }
+      }
+      
+
+    ]
+  }
+
+        
+          
+            
+                   
+                      
+
+	  ]
+	}
+
+  }
