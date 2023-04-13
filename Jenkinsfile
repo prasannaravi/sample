@@ -49,11 +49,11 @@ node {
 
     stage('Build') {
         milestone()
-        sh 'ng build --prod --aot --sm --progress=false'
+        bat 'ng build --prod --aot --sm --progress=false'
     }
 
     stage('Archive') {
-        sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
+        bat 'tar -cvzf dist.tar.gz --strip-components=1 dist'
         archive 'dist.tar.gz'
     }
 
