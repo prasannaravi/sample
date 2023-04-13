@@ -49,12 +49,18 @@ node {
     }
 
        stage('Build') {
-         steps {
-            bat 'rm -rf AMS' 
-            bat 'mkdir AMS' // create a new folder
-            bat 'echo "AMS" > build/sample.exe' // output
-            
+         steps{
+        milestone(20)
+        bat 'ng build --prod'
          }
-      }
+    }
+
+    
+    stage('Deploy') {
+         steps{
+        milestone(20)
+        echo "Deploying..."
+         }
+    }
     
 }
