@@ -38,32 +38,24 @@ node {
                  }
     }
 
-    stage('Test') {
-      parallel {
-        stage('Static code analysis') {
-            steps { bat 'npm run-script lint' }
-        }
-        stage('Unit tests') {
-            steps { bat 'npm run-script test' }
-        }
+    stage('SonarQube analysis') {
+  environment {
+    scannerHome = tool 'SonarQube Scanner'
+  }
+  steps {
+    withSonarQubeEnv('SonarQube Server') {
+      bat "${scannerHome}/bin/sonar-scanner"
+    }
+  }
+    }
+    stages {
+      stage('Build') {
+         steps {
+            bat 'rm -rf AMS' 
+            bat 'mkdir AMS' // create a new folder
+            bat 'echo "AMS" > build/sample.exe' // output
+            
+         }
       }
-    }
- stage('Build') {
-         steps{
-        milestone(20)
-        bat 'ng build --prod'
-         }
-    }
-
-    stage('Archive') {
-         steps{
-        bat 'tar -cvzf dist.tar.gz --strip-components=1 dist'
-        archive 'dist.tar.gz'
-         }
-    }
-
-    stage('Deploy') {
-        milestone()
-        echo "Deploying..."
-    }
+    
 }
