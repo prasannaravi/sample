@@ -34,7 +34,7 @@ node {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             
                     bat 'npm install d3'
-                    echo 'd3 install successfully'
+                    
                  }
     }
     stage('Test') {
