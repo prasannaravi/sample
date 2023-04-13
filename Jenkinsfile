@@ -38,29 +38,19 @@ node {
                  }
     }
 
-    stage('Test') {
-        withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-          bat 'ng test --progress=false --watch false'
+   stage('Test') {
+      parallel {
+        stage('Static code analysis') {
+            steps { sh 'npm run-script lint' }
         }
-        junit '**/test-results.xml'
+        stage('Unit tests') {
+            steps { sh 'npm run-script test' }
+        }
+      }
     }
-
-    stage('Lint') {
-        bat 'ng lint'
-    }
-
+ 
     stage('Build') {
-        milestone()
-        bat 'ng build --prod --aot --sm --progress=false'
+      steps { sh 'npm run-script build' }
     }
-
-    stage('Archive') {
-        bat 'tar -cvzf dist.tar.gz --strip-components=1 dist'
-        archive 'dist.tar.gz'
-    }
-
-    stage('Deploy') {
-        milestone()
-        echo "Deploying..."
-    }
+  }
 }
