@@ -38,7 +38,7 @@ node {
                  }
     }
 
-   stage('Test') {
+    stage('Test') {
       parallel {
         stage('Static code analysis') {
             steps { sh 'npm run-script lint' }
@@ -48,9 +48,9 @@ node {
         }
       }
     }
- 
-    stage('Build') {
-      steps { sh 'npm run-script build' }
+
+    stage('Deploy') {
+        milestone()
+        echo "Deploying..."
     }
-  }
 }
