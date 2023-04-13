@@ -41,12 +41,25 @@ node {
     stage('Test') {
       parallel {
         stage('Static code analysis') {
-            steps { sh 'npm run-script lint' }
+            steps { bat 'npm run-script lint' }
         }
         stage('Unit tests') {
-            steps { sh 'npm run-script test' }
+            steps { bat 'npm run-script test' }
         }
       }
+    }
+ stage('Build') {
+         steps{
+        milestone(20)
+        bat 'ng build --prod'
+         }
+    }
+
+    stage('Archive') {
+         steps{
+        bat 'tar -cvzf dist.tar.gz --strip-components=1 dist'
+        archive 'dist.tar.gz'
+         }
     }
 
     stage('Deploy') {
