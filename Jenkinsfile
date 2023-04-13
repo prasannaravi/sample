@@ -38,18 +38,7 @@ node {
                  }
     }
 
-    stage('SonarQube analysis') {
-  environment {
-    scannerHome = tool 'SonarQube Scanner'
-  }
-  steps {
-    withSonarQubeEnv('SonarQube Server') {
-      bat "${scannerHome}/bin/sonar-scanner"
-    }
-  }
-    }
-    stages {
-      stage('Build') {
+       stage('Build') {
          steps {
             bat 'rm -rf AMS' 
             bat 'mkdir AMS' // create a new folder
