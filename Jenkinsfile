@@ -37,6 +37,16 @@ node {
                     echo 'd3 install successfully'
                  }
     }
+    stage('Test') {
+        withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
+          bat 'ng test --progress=false --watch false'
+        }
+        junit '**/test-results.xml'
+    }
+
+    stage('Lint') {
+        bat 'ng lint'
+    }
 
        stage('Build') {
          steps {
