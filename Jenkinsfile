@@ -29,6 +29,12 @@ node {
             sh 'npm install'
         }
     }
+    stage('NPM Install d3') {
+        withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+            sh 'npm install d3'
+            echo 'd3 install successfully'
+        }
+    }
 
     stage('Test') {
         withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
