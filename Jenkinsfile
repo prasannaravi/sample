@@ -13,6 +13,7 @@ properties(
     ]
 )
 node {
+    export CHROME_BIN=/usr/bin/chromium-browser
     stage('Checkout') {
         //disable to recycle workspace data to save time/bandwidth
         deleteDir()
