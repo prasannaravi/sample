@@ -10,15 +10,9 @@ pipeline {
             }
         stage('test') {
             steps {
-                "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "test:ci": "ng test --browsers=ChromeHeadless --watch=false",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
-  },
+                bat "ng test --browsers=ChromeHeadless --watch=false"
+                bat "ng lint"
+                bat "ng e2e"
                }
         }
         stage('Build') {
