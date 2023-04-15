@@ -2,15 +2,28 @@ pipeline {
     agent any
 
     stages {
+        stage('NPM install') {
+            steps {
+                bat 'npm install'
+                bat 'npm install d3'
+             }
+            }
         stage('test') {
             steps {
-                bat 'npm run test'
+                "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "test:ci": "ng test --browsers=ChromeHeadless --watch=false",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
                }
         }
         stage('Build') {
             steps {
-                bat 'npm install'
-                bat 'npm install d3'
+               
                 bat 'npm run build --prod'
             }
             
