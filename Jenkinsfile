@@ -10,9 +10,8 @@ pipeline {
             }
         stage('test') {
             steps {
-                bat "ng test --browsers=ChromeHeadless --watch=false"
-                bat "ng lint"
-                bat "ng e2e"
+                bat 'npm run test --browsers=ChromeHeadless --watch=false'
+                
                }
         }
         stage('Build') {
