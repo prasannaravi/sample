@@ -10,7 +10,7 @@ pipeline {
             }
         stage('test') {
             steps {
-                bat 'npm run test --browsers=ChromeHeadless --watch=false'
+                bat 'npm test --sourceMap=false --browsers=ChromeHeadless --watch=false'
                 
                }
         }
