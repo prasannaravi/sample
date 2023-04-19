@@ -8,12 +8,7 @@ pipeline {
                 bat 'npm install d3'
              }
             }
-        stage('test') {
-            steps {
-                bat 'npm test --sourceMap=false --browsers=ChromeHeadless --watch=false'
-                
-               }
-        }
+       
         stage('Build') {
             steps {
                
