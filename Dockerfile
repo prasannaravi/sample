@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install project dependencies
-RUN npm install
+RUN npm install --force
 
 # Install a lightweight HTTP server globally
 RUN npm install -g http-server
