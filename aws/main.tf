@@ -5,7 +5,7 @@ provider "aws" {
 # Create a VPC for the EKS cluster
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.18.1"  # Specify a compatible version for the module
+  version = "3.18.1"
 
   name = "eks-vpc"
   cidr = "10.0.0.0/16"
@@ -24,7 +24,7 @@ module "vpc" {
 # Create an EKS cluster
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
-  version         = "19.0.0"  # Specify the EKS module version
+  version         = "19.0.0"
 
   cluster_name    = "my-eks-cluster"
   cluster_version = "1.21"
@@ -34,24 +34,62 @@ module "eks" {
   # Enable IAM Role for Service Accounts (IRSA)
   enable_irsa = true
 
-  # Configure node groups
-  node_groups = {
-    eks_node_group = {
-      desired_capacity = 2
-      max_capacity     = 5
-      min_capacity     = 1
-      instance_type    = "t3.medium"
-
-      # Configure node group tags
-      tags = {
-        Name        = "eks-node-group"
-        Environment = "dev"
-      }
-    }
-  }
-
   tags = {
     Environment = "dev"
     Project     = "eks-cluster"
   }
+}
+
+# Create a managed node group
+resource "aws_eks_node_group" "eks_nodes" {
+  cluster_name    = module.eks.cluster_name
+  node_group_name = "eks-node-group"
+  node_role_arn   = aws_iam_role.node_group_role.arn
+  subnet_ids      = module.vpc.private_subnets
+
+  scaling_config {
+    desired_size = 2
+    max_size     = 5
+    min_size     = 1
+  }
+
+  instance_types = ["t3.medium"]
+
+  tags = {
+    Name        = "eks-node-group"
+    Environment = "dev"
+  }
+}
+
+# IAM Role for Node Group
+resource "aws_iam_role" "node_group_role" {
+  name = "eks-node-group-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+        Action = "sts:AssumeRole"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "node_group_policy" {
+  role       = aws_iam_role.node_group_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "cni_policy" {
+  role       = aws_iam_role.node_group_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+}
+
+resource "aws_iam_role_policy_attachment" "ec2_container_registry_readonly" {
+  role       = aws_iam_role.node_group_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
