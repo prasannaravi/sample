@@ -15,6 +15,8 @@ module "vpc" {
   public_subnets  = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
 
   enable_nat_gateway = true
+  single_nat_gateway = true  # Use a single NAT Gateway to avoid Elastic IP exhaustion
+
   tags = {
     Environment = "dev"
     Project     = "eks-cluster"
@@ -31,9 +33,9 @@ module "eks" {
   vpc_id          = module.vpc.vpc_id
   subnet_ids      = module.vpc.private_subnets
 
-  # Enable IAM Role for Service Accounts (IRSA)
   enable_irsa = true
 
+  # Add necessary tags
   tags = {
     Environment = "dev"
     Project     = "eks-cluster"
@@ -66,10 +68,10 @@ resource "aws_iam_role" "node_group_role" {
   name = "eks-node-group-role"
 
   assume_role_policy = jsonencode({
-    Version = "2012-10-17"
+    Version = "2012-10-17",
     Statement = [
       {
-        Effect = "Allow"
+        Effect = "Allow",
         Principal = {
           Service = "ec2.amazonaws.com"
         }
@@ -79,6 +81,7 @@ resource "aws_iam_role" "node_group_role" {
   })
 }
 
+# Attach IAM policies to the node group role
 resource "aws_iam_role_policy_attachment" "node_group_policy" {
   role       = aws_iam_role.node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
@@ -92,4 +95,20 @@ resource "aws_iam_role_policy_attachment" "cni_policy" {
 resource "aws_iam_role_policy_attachment" "ec2_container_registry_readonly" {
   role       = aws_iam_role.node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+}
+
+# KMS Key for EKS Encryption
+resource "aws_kms_key" "eks_encryption" {
+  description             = "KMS key for EKS cluster encryption"
+  deletion_window_in_days = 7
+
+  tags = {
+    Environment = "dev"
+    Project     = "eks-cluster"
+  }
+}
+
+resource "aws_kms_alias" "eks_alias" {
+  name          = "alias/eks-cluster-key"
+  target_key_id = aws_kms_key.eks_encryption.key_id
 }
